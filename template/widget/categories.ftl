@@ -18,7 +18,7 @@
     </#list>
 </#macro>
 <#assign num= settings.categories_num!10 />
-<div class="card widget ${settings.hide_categories!}">
+<div class="card widget ${settings.hide_categories!}" id="categories">
     <#assign postCounts = {}>
     <@categoryTag method="list">
         <div class="card-title">

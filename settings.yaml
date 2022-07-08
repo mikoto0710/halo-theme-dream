@@ -495,6 +495,19 @@ profile:
           label: 右侧展示
         - value: none
           label: 不显示
+    profile_show_mode:
+      name: profile_show_mode
+      label: 显示模式
+      type: radio
+      default: index
+      description: 当满足指定的条件时信息模块才会显示
+      options:
+        - value: none
+          label: 无条件
+        - value: toc
+          label: 目录模块不显示时
+        - value: index
+          label: 仅首页
     sidebar_priority_profile:
       name: sidebar_priority_profile
       label: 侧边栏优先级
@@ -931,6 +944,21 @@ categories:
           label: 右侧
         - value: none
           label: 关闭
+    categories_show_mode:
+      name: categories_show_mode
+      label: 显示模式
+      type: radio
+      default: index
+      description: 当满足指定的条件时分类信息才会显示
+      options:
+        - value: none
+          label: 无条件
+        - value: toc
+          label: 含有目录模块页面
+        - value: index
+          label: 仅首页
+        - value: not-index
+          label: 非首页
     sidebar_priority_categories:
       name: sidebar_priority_categories
       label: 侧边栏优先级

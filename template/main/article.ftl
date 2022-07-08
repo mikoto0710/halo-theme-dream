@@ -1,7 +1,7 @@
 <#macro article post,commentType>
     <#if post.thumbnail?? && post.thumbnail!=''>
         <div class="card widget">
-            <div class="cover-image" style="background-image: url(${post.thumbnail!})">
+            <div class="cover-image" style="background-image: url(${post.thumbnail!});">
                 <#if categories?? && categories?size gt 0>
                     <div class="category">
                         <#list categories as category>
@@ -12,10 +12,10 @@
                 <div class="details">
                     <h1 class="title">${post.title!}</h1>
                     <ul class="breadcrumb">
-                        <li><@global.timeline datetime=post.createTime/></li>
+                        <li>${post.createTime?date}</li>
                         <li><i class="fa fa-eye"></i>${post.visits?c}</li>
                         <#if !post.disallowComment!false><li><i class="fa fa-comments-o"></i>${post.commentCount?c}</li></#if>
-                        <#if !is_sheet??><li><i class="fa fa-thumbs-o-up"></i>${post.likes?c}</li></#if>
+                        <li><i class="fa fa-thumbs-o-up"></i>${post.likes?c}</li>
                         <li><i class="fa fa-pencil"></i>${post.wordCount?c}</li>
                     </ul>
                 </div>
@@ -31,11 +31,12 @@
                 <h1 class="title">${post.title!}</h1>
                 <div class="meta">
                     <ul class="breadcrumb">
-                        <li><@global.timeline datetime=post.createTime/></li>
+                        <li>${post.createTime?date}</li>
                         <li><i class="fa fa-eye"></i>${post.visits?c}</li>
                         <#if !post.disallowComment!false><li><i class="fa fa-comments-o"></i>${post.commentCount?c}</li></#if>
-                        <#if !is_sheet??><li><i class="fa fa-thumbs-o-up"></i>${post.likes?c}</li></#if>
-                        <li><i class="fa fa-pencil"></i>${post.wordCount?c}</li>
+                        <li><i class="fa fa-thumbs-o-up"></i>${post.likes?c}</li>
+                        <#assign words= post.formatContent?replace('</?[a-z][^>]*>','','ri')?matches('[\\u00ff-\\uffff]|[a-zA-Z]+')?size />
+                        <li><i class="fa fa-pencil"></i>${words?c}</li>
                     </ul>
                     <#if post.categories?? && post.categories?size gt 0>
                         <div class="level-item">

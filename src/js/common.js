@@ -13,13 +13,19 @@ const commonContext = {
             }
         }
     },
-    /* 初始化目录和公告模块 */
+    /* 初始化目录、个人信息、分类和公告模块 */
     initTocAndNotice() {
         const {pathname} = location;
-        window.tocPjax && window.tocPjax()
+        window.tocPjax && window.tocPjax();
         let hideToc = $('.widget.toc .card-content ul').length === 0;
         let hideNotice = (DreamConfig.notice_show_mode === 'toc' && !hideToc)
-            || (DreamConfig.notice_show_mode === 'index' && pathname !== '/')
+            || (DreamConfig.notice_show_mode === 'index' && pathname !== '/');
+        let hideProfile = (DreamConfig.profile_show_mode === 'toc' && !hideToc)
+            || (DreamConfig.profile_show_mode === 'index' && pathname !== '/');
+        let hideCategories = (DreamConfig.notice_show_mode === 'toc' && hideToc)
+            || (DreamConfig.categories_show_mode === 'index' && pathname !== '/')
+            || (DreamConfig.categories_show_mode === 'not-index' && !pathname.match(/\/\w+/))
+        ;
         if (hideToc) {
             $('.widget.toc,.action-toc').addClass("is-hidden-all");
         } else {
@@ -29,6 +35,16 @@ const commonContext = {
             $('.widget.notice').addClass("is-hidden-all");
         } else {
             $('.widget.notice').removeClass("is-hidden-all");
+        }
+        if (hideProfile) {
+            $('#profile').addClass("is-hidden-all");
+        } else {
+            $('#profile').removeClass("is-hidden-all");
+        }
+        if (hideCategories) {
+            $('#categories').addClass("is-hidden-all");
+        } else {
+            $('#categories').removeClass("is-hidden-all");
         }
     },
     /* widget固定底部 */
@@ -379,7 +395,7 @@ const commonContext = {
         DreamConfig.enable_baidu_push && Utils.baiduPush();
         DreamConfig.enable_toutiao_push && Utils.toutiaoPush();
     }
-}
+};
 
 window.commonContext = commonContext;
 

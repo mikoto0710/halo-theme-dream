@@ -64,6 +64,12 @@
     <#if settings.sidebar_notice?? && settings.sidebar_notice!='none'>
     DreamConfig["notice_show_mode"] = '${settings.notice_show_mode!'index'}';
     </#if>
+    <#if settings.sidebar_profile?? && settings.sidebar_profile!='none'>
+    DreamConfig["profile_show_mode"] = '${settings.profile_show_mode!'index'}';
+    </#if>
+    <#if settings.sidebar_categories?? && settings.sidebar_categories!='none'>
+    DreamConfig["categories_show_mode"] = '${settings.categories_show_mode!'none'}';
+    </#if>
     <#if settings.journals_fold_height?? && settings.journals_fold_height?number gte 260>
     DreamConfig["journals_fold_height"] =${settings.journals_fold_height};
     </#if>

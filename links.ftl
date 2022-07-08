@@ -6,7 +6,6 @@
             </div>
         </#if>
         <div class="card-content main">
-            <h1 class="title">友情链接 - ${user.nickname!}的小伙伴们</h1>
             <div class="main-content">
                 <@linkTag method="listTeams">
                     <#assign defaultAvatar= (settings.links_default_avatar?? && settings.links_default_avatar!='')?string(settings.links_default_avatar!, static + "/source/img/avatar.svg") />
@@ -15,7 +14,7 @@
                             <#if item.team?? && item.team!=''>
                                 <h3 class="link-title" id="toc${item_index}">${item.team}</h3>
                             <#else>
-                                <h3 class="link-title" id="toc${item_index}">小伙伴们</h3>
+                                <h3 class="link-title" id="toc${item_index}">未分类</h3>
                             </#if>
                             <ul class="link-items">
                                 <#list item.links as link>
@@ -35,7 +34,7 @@
                                             <#if link.description?? && link.description!=''>
                                                 <div class="link-desc">${link.description!}</div>
                                             <#else>
-                                                <div class="link-desc">他还没有自我介绍呢</div>
+                                                <div class="link-desc">没有介绍</div>
                                             </#if>
                                         </a>
                                     </li>
