@@ -1,9 +1,9 @@
 {
   "name": "halo-theme-dream",
-  "version": "2.0.5",
-  "description": "梦之城，童话梦境，动漫类型博客主题。",
+  "version": "2.0.5-skiz",
+  "description": "Halo Dream主题个人修改版本，原作者nineya",
   "main": "index.js",
-  "author": "nineya",
+  "author": "skiz",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cdn": "gulp freecdn",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nineya/halo-theme-dream.git"
+    "url": "git+https://github.com/mikoto0710/halo-theme-dream.git"
   },
   "keywords": [
     "halo",
