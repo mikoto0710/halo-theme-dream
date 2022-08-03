@@ -1448,4 +1448,1436 @@ custom:
 #      type: textarea
 #      default: '<a class="button is-transparent is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
 #                    <i class="fa fa-creative-commons"></i>
+basic:
+  label: 基础设置
+  items:
+    access_key:
+      name: access_key
+      label: AccessKey <必填>
+      type: text
+      default: dream
+      placeholder: '博客API设置中的Access Key'
+      description: 'Access Key 用于主题中 Content API 校验，填写有误将导致接口报错，需在博客高级设置中开启 API 服务，并使此处的 Access Key 与 API 设置中的保持一致。'
+    small_title:
+      name: small_title
+      label: 网站副标题
+      type: text
+      placeholder: '网站副标题'
+    document_hidden_title:
+      name: document_hidden_title
+      label: 离屏文案（离开）
+      type: text
+      placeholder: '浏览器切换到其它标签或后台时页面标题展示的文字'
+    document_visible_title:
+      name: document_visible_title
+      label: 离屏文案（回来）
+      type: text
+      placeholder: '浏览器返回到当前标签时页面标题展示的文字'
+    night_logo:
+      name: night_logo
+      label: 黑夜模式的logo(放空默认为网站logo)
+      type: attachment
+      placeholder: '黑夜模式的logo'
+    load_progress:
+      name: load_progress
+      label: 加载进度条
+      type: radio
+      default: center
+      options:
+        - value: none
+          label: 不显示
+        - value: left
+          label: 左侧展开
+        - value: center
+          label: 居中展开
+    enable_image_bg:
+      name: enable_image_bg
+      label: 开启博客背景图
+      type: switch
+      data-type: bool
+      default: false
+      description: '如果某个选项的背景图链接未指定，则不开启背景图。'
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    background_pc:
+      name: background_pc
+      label: 白天PC端背景图
+      type: attachment
+      placeholder: '图片url链接'
+    background_mobile:
+      name: background_mobile
+      label: 白天移动端背景图
+      type: attachment
+      placeholder: '图片url链接'
+    night_background_pc:
+      name: night_background_pc
+      label: 黑夜PC端背景图
+      type: attachment
+      placeholder: '图片url链接'
+    night_background_mobile:
+      name: night_background_mobile
+      label: 黑夜移动端背景图
+      type: attachment
+      placeholder: '图片url链接'
+    theme_color:
+      name: theme_color
+      label: 主题色
+      type: color
+      default: '#50bfff'
+      placeholder: '普通模式下的主题颜色'
+    night_theme_color:
+      name: night_theme_color
+      label: 黑夜主题色
+      type: color
+      default: '#5d93db'
+      placeholder: '黑夜模式下的主题颜色'
+    sidebar_column:
+      name: sidebar_column
+      label: 侧边栏布局方式
+      type: select
+      default: 'all'
+      options:
+        - value: 'all'
+          label: 三列布局
+        - value: 'only-left'
+          label: 仅显示左侧
+        - value: 'only-right'
+          label: 仅显示右侧
+    left_sidebar_sticky:
+      name: left_sidebar_sticky
+      label: 左侧边栏悬浮
+      type: radio
+      default: bottom
+      options:
+        - value: top
+          label: 固定顶部
+        - value: bottom
+          label: 固定底部
+        - value: none
+          label: 不悬浮
+    right_sidebar_sticky:
+      name: right_sidebar_sticky
+      label: 右侧边栏悬浮
+      type: radio
+      default: top
+      options:
+        - value: top
+          label: 固定顶部
+        - value: bottom
+          label: 固定底部
+        - value: none
+          label: 不悬浮
+    page_number:
+      name: page_number
+      label: 分页页码数量
+      type: text
+      placeholder: '分页页码数量'
+      default: '5'
+    record_number:
+      name: record_number
+      label: 备案号
+      type: text
+      placeholder: '工信部备案号'
+    record_number_ps:
+      name: record_number_ps
+      label: 公安部备案
+      type: text
+      placeholder: '公安部备案号'
+    website_time:
+      name: website_time
+      label: 建站时间
+      type: text
+      placeholder: 'YYYY/MM/dd HH:mm:ss'
+    enable_busuanzi:
+      name: enable_busuanzi
+      label: 开启busuanzi访客统计
+      type: switch
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    cloud_by_logo:
+      name: cloud_by_logo
+      label: 云服务提供商Logo
+      type: attachment
+      placeholder: 'Logo图片url链接'
+    cloud_by_url:
+      name: cloud_by_url
+      label: 云服务提供商URL
+      type: text
+      placeholder: 'url地址'
+post:
+  label: 文章设置
+  items:
+    top_thumbnail_mode:
+      name: top_thumbnail_mode
+      label: 置顶文章列表缩略图模式
+      type: select
+      default: back
+      description: '置顶的文章在列表的缩略图模式，如果文章元数据配置了“thumbnail_mode”项，则当前配置将被覆盖。'
+      options:
+        - value: default
+          label: 默认模式
+        - value: back
+          label: 背景图模式
+        - value: small
+          label: 小图模式（左侧）
+        - value: small-right
+          label: 小图模式（右侧）
+        - value: small-alter
+          label: 小图模式（交替）
+    thumbnail_mode:
+      name: thumbnail_mode
+      label: 文章列表缩略图模式
+      type: select
+      default: default
+      description: '文章列表缩略图模式，如果文章元数据配置了“thumbnail_mode”项，则当前配置将被覆盖。'
+      options:
+        - value: default
+          label: 默认模式
+        - value: back
+          label: 背景图模式
+        - value: small
+          label: 小图模式（左侧）
+        - value: small-right
+          label: 小图模式（右侧）
+        - value: small-alter
+          label: 小图模式（交替）
+    code_pretty:
+      name: code_pretty
+      label: 代码块高亮主题
+      type: select
+      default: atom-one-light
+      options:
+        - value: a11y-dark
+          label: A11y Dark
+        - value: a11y-light
+          label: A11y Light
+        - value: agate
+          label: Agate
+        - value: an-old-hope
+          label: An Old Hope
+        - value: androidstudio
+          label: Androidstudio
+        - value: arduino-light
+          label: Arduino Light
+        - value: arta
+          label: Arta
+        - value: ascetic
+          label: Ascetic
+        - value: atom-one-dark
+          label: Atom One Dark
+        - value: atom-one-dark-reasonable
+          label: Atom One Dark Reasonable
+        - value: atom-one-light
+          label: Atom One Light
+        - value: brown-paper
+          label: Brown Paper
+        - value: brown-papersq
+          label: Brown Papersq
+        - value: codepen-embed
+          label: Codepen Embed
+        - value: color-brewer
+          label: Color Brewer
+        - value: dark
+          label: Dark
+        - value: default
+          label: Default
+        - value: devibeans
+          label: Devibeans
+        - value: docco
+          label: Docco
+        - value: far
+          label: Far
+        - value: foundation
+          label: Foundation
+        - value: github-dark-dimmed
+          label: Github Dark Dimmed
+        - value: github-dark
+          label: Github Dark
+        - value: github
+          label: Github
+        - value: gml
+          label: Gml
+        - value: googlecode
+          label: Googlecode
+        - value: gradient-dark
+          label: Gradient Dark
+        - value: gradient-light
+          label: Gradient Light
+        - value: grayscale
+          label: Grayscale
+        - value: hybrid
+          label: Hybrid
+        - value: idea
+          label: Idea
+        - value: ir-black
+          label: Ir Black
+        - value: isbl-editor-dark
+          label: Isbl Editor Dark
+        - value: isbl-editor-light
+          label: Isbl Editor Light
+        - value: kimbie-dark
+          label: Kimbie Dark
+        - value: kimbie-light
+          label: Kimbie Light
+        - value: lightfair
+          label: Lightfair
+        - value: lioshi
+          label: Lioshi
+        - value: magula
+          label: Magula
+        - value: mono-blue
+          label: Mono Blue
+        - value: monokai-sublime
+          label: Monokai Sublime
+        - value: monokai
+          label: Monokai
+        - value: night-owl
+          label: Night Owl
+        - value: nnfx-dark
+          label: Nnfx dark
+        - value: nnfx-light
+          label: Nnfx Light
+        - value: nord
+          label: Nord
+        - value: obsidian
+          label: Obsidian
+        - value: paraiso-dark
+          label: Paraiso Dark
+        - value: paraiso-light
+          label: Paraiso Light
+        - value: pojoaque
+          label: Pojoaque
+        - value: purebasic
+          label: Purebasic
+        - value: qtcreator-dark
+          label: Qtcreator Dark
+        - value: qtcreator-light
+          label: Qtcreator Light
+        - value: rainbow
+          label: Rainbow
+        - value: routeros
+          label: Routeros
+        - value: school-book
+          label: School Book
+        - value: shades-of-purple
+          label: Shades Of Purple
+        - value: srcery
+          label: Srcery
+        - value: stackoverflow-dark
+          label: Stackoverflow Dark
+        - value: stackoverflow-light
+          label: Stackoverflow Light
+        - value: sunburst
+          label: Sunburst
+        - value: tomorrow-night-blue
+          label: Tomorrow Night Blue
+        - value: tomorrow-night-bright
+          label: Tomorrow Night Bright
+        - value: vs
+          label: Vs
+        - value: vs2015
+          label: Vs 2015
+        - value: xcode
+          label: Xcode
+        - value: xt256
+          label: Xt 256
+    code_fold_line:
+      name: code_fold_line
+      label: 代码块折叠
+      type: text
+      default: 50
+      placeholder: '触发折叠的代码行数'
+      description: '代码行数超出指定行数后默认进行折叠，指定的行数需大于等于20。'
+    enable_katex:
+      name: enable_katex
+      label: KaTeX 公式支持
+      type: radio
+      data-type: bool
+      default: false
+      description: '博客通过 KaTeX 做数学公式渲染，如果文章或页面元数据配置了“enable_katex”项，则当前配置将被覆盖。'
+      options:
+        - value: true
+          label: 默认开启
+        - value: false
+          label: 默认关闭
+    enable_copyright:
+      name: enable_copyright
+      label: 文章底部版权声明
+      type: radio
+      data-type: bool
+      default: true
+      description: '如果文章或页面元数据配置了“enable_copyright”项，则当前配置将被覆盖。'
+      options:
+        - value: true
+          label: 默认开启
+        - value: false
+          label: 默认关闭
+    enable_post_share:
+      name: enable_post_share
+      label: 开启文章分享
+      type: radio
+      data-type: bool
+      default: true
+      description: '如果文章或页面元数据配置了“enable_share”项，则当前配置将被覆盖。'
+      options:
+        - value: true
+          label: 默认开启
+        - value: false
+          label: 默认关闭
+    donate_alipay:
+      name: donate_alipay
+      label: 支付宝捐赠二维码
+      type: attachment
+      placeholder: '二维码地址'
+    donate_wechat:
+      name: donate_wechat
+      label: 微信捐赠二维码
+      type: attachment
+      placeholder: '二维码地址'
+comment:
+  label: 评论区
+  items:
+    enable_theme_comment:
+      name: enable_theme_comment
+      label: 使用主题定制评论区
+      type: switch
+      data-type: bool
+      default: true
+      description: '开启后将使用主题内置的评论区模块，如果使用其他评论区模块以下评论区相关的配置可能不生效。'
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    autoload_comment:
+      name: autoload_comment
+      label: 自动加载评论列表
+      type: switch
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    image_token:
+      name: image_token
+      label: 图床Token
+      type: text
+      placeholder: '图床Token'
+      description: '评论区支持快捷上传图片到 <a href="https://pic.jitudisk.com/" target="_blank">极兔图床</a>，默认为游客上传，自行前往注册账号并获取 Token。注：配置后Token将被公开，同时主题不保证图床的稳定性！'
+    unfold_reply_num:
+      name: unfold_reply_num
+      label: 默认展开的二级回复数量
+      type: text
+      default: 6
+      placeholder: '默认展开的二级回复数量'
+    show_comment_ua:
+      name: show_comment_ua
+      label: 显示评论的UA信息
+      type: switch
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    comment_loading_style:
+      name: comment_loading_style
+      label: 评论加载样式
+      type: radio
+      data-type: text
+      default: default
+      options:
+        - value: default
+          label: 默认
+        - value: circle
+          label: 圆圈
+        - value: balls
+          label: 小球
+    priority_qq_avatar:
+      name: priority_qq_avatar
+      label: 优先显示QQ头像
+      type: switch
+      data-type: bool
+      default: false
+      description: '如果是QQ邮箱，则优先使用QQ头像。'
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    enable_qq_info:
+      name: enable_qq_info
+      label: 获取QQ昵称和头像
+      type: switch
+      data-type: bool
+      default: false
+      description: '评论时，自动通过QQ号自动获取QQ昵称和邮箱。'
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    enable_comment_html:
+      name: enable_comment_html
+      label: 开启评论html内容
+      type: switch
+      data-type: bool
+      default: false
+      description: '允许评论输入html内容，开启后有用户注入恶意代码的风险（XSS），建议同时开启评论审核。'
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+profile:
+  label: 信息模块
+  items:
+    sidebar_profile:
+      name: sidebar_profile
+      label: 展示方式
+      type: radio
+      default: left
+      options:
+        - value: left
+          label: 左侧展示
+        - value: right
+          label: 右侧展示
+        - value: none
+          label: 不显示
+    sidebar_priority_profile:
+      name: sidebar_priority_profile
+      label: 侧边栏优先级
+      type: text
+      default: 9900
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_profile:
+      name: hide_profile
+      label: 隐藏方式
+      type: select
+      default: 'is-not-hidden'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    enable_color_character:
+      name: enable_color_character
+      label: 开启彩字切换
+      type: switch
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    color_character:
+      name: color_character
+      label: 彩字内容
+      type: textarea
+      placeholder: 彩字内容（一行一条彩字消息）
+    profile_location:
+      name: profile_location
+      label: 地理位置
+      type: text
+      placeholder: '个人所在地'
+    profile_follow_url:
+      name: profile_follow_url
+      label: (关注我)按钮地址
+      type: text
+      placeholder: '默认为博客地址'
+    social_github:
+      name: social_github
+      label: Github
+      type: text
+      placeholder: 'Github 用户名'
+    social_qq:
+      name: social_qq
+      label: QQ
+      type: text
+      placeholder: 'QQ 号'
+    social_weibo:
+      name: social_weibo
+      label: 微博
+      type: text
+      placeholder: '微博用户名'
+    social_twitter:
+      name: social_twitter
+      label: Twitter
+      type: text
+      placeholder: 'Twitter 用户名'
+    social_facebook:
+      name: social_facebook
+      label: Facebook
+      type: text
+      placeholder: 'Facebook 用户名'
+    social_email:
+      name: social_email
+      label: '邮箱'
+      type: text
+      placeholder: '邮箱地址'
+    social_telegram:
+      name: social_telegram
+      label: Telegram
+      type: text
+      placeholder: 'Telegram 用户名'
+    social_csdn:
+      name: social_csdn
+      label: CSDN
+      type: text
+      placeholder: 'CSDN 主页'
+toc:
+  label: 目录模块
+  items:
+    sidebar_toc:
+      name: sidebar_toc
+      label: 侧边栏目录
+      type: radio
+      default: right
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_toc:
+      name: sidebar_priority_toc
+      label: 侧边栏优先级
+      type: text
+      default: 9800
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_toc:
+      name: hide_toc
+      label: 隐藏方式
+      type: select
+      default: 'is-hidden-not-desktop'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    drawer_toc:
+      name: drawer_toc
+      label: 侧边抽屉式目录
+      type: radio
+      data-type: bool
+      default: true
+      description: '在非桌面设备上，显示展开侧边抽屉式目录的悬浮按钮。'
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不显示
+notice:
+  label: 公告模块
+  items:
+    sidebar_notice:
+      name: sidebar_notice
+      label: 侧边栏公告
+      type: radio
+      default: right
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_notice:
+      name: sidebar_priority_notice
+      label: 侧边栏优先级
+      type: text
+      default: 9700
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_notice:
+      name: hide_notice
+      label: 隐藏方式
+      type: select
+      default: 'is-not-hidden'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    notice_content:
+      name: notice_content
+      label: 博客公告
+      type: textarea
+      placeholder: 请输入公告内容（html格式）
+    notice_show_mode:
+      name: notice_show_mode
+      label: 显示模式
+      type: radio
+      default: index
+      description: 当满足指定的条件时公告模块才会显示
+      options:
+        - value: none
+          label: 无条件
+        - value: toc
+          label: 目录模块不显示时
+        - value: index
+          label: 仅首页
+music:
+  label: 音乐模块
+  items:
+    sidebar_music:
+      name: sidebar_music
+      label: 侧边栏音乐
+      type: radio
+      default: none
+      description: '三列布局时不能在右侧显示音乐模块。'
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_music:
+      name: sidebar_priority_music
+      label: 侧边栏优先级
+      type: text
+      default: 9600
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_music:
+      name: hide_music
+      label: 隐藏方式
+      type: select
+      default: 'is-hidden-mobile'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    music_mode:
+      name: music_mode
+      label: 音乐播放器配置方法
+      type: radio
+      default: 'playlist'
+      options:
+        - value: 'playlist'
+          label: 网易云歌单ID
+        - value: 'config'
+          label: 参数进阶配置
+    netease_playlist_id:
+      name: netease_playlist_id
+      label: 网易云歌单ID
+      type: text
+      placeholder: '填写网易云歌单的ID'
+    music_config:
+      name: music_config
+      label: 参数进阶配置
+      type: textarea
+      placeholder: '音乐参数配置，(id,server,type为必须值)'
+      default: 'list-folded="true"
+                server="netease"
+                type="playlist"
+                id="7355014621"'
+      description: '详细配置方式见官方文档：<a href="https://github.com/metowolf/MetingJS/" target="_blank">MetingJS 2.0</a>'
+ad_piece:
+  label: 广告模块
+  items:
+    sidebar_ad_piece:
+      name: sidebar_ad_piece
+      label: 侧边栏广告
+      type: radio
+      default: none
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_ad_piece:
+      name: sidebar_priority_ad_piece
+      label: 侧边栏优先级
+      type: text
+      default: 9500
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_ad_piece:
+      name: hide_ad_piece
+      label: 隐藏方式
+      type: select
+      default: 'is-not-hidden'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    show_ad_tag:
+      name: show_ad_tag
+      label: 显示“广告”标签
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不显示
+    ad_tag_close:
+      name: ad_tag_close
+      label: “广告”标签可点击关闭广告
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 是
+        - value: false
+          label: 否
+    ad_mode:
+      name: ad_mode
+      label: 广告展示方法
+      type: radio
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 图片+链接
+        - value: false
+          label: 自定义广告代码
+    ad_target_url:
+      name: ad_target_url
+      label: 广告目标地址
+      type: text
+      placeholder: '填写广告跳转的目标路径'
+    ad_image:
+      name: ad_image
+      label: 广告图片链接
+      type: attachment
+      description: '“图片+链接”模式时不能为空。'
+      placeholder: '填写图片路径'
+    ad_custom_code:
+      name: ad_custom_code
+      label: 自定义广告代码
+      type: textarea
+      placeholder: '在这里黏贴广告联盟提供的广告代码'
+      description: '“自定义广告代码”模式时不能为空。'
+recent_posts:
+  label: 最近文章模块
+  items:
+    sidebar_recent_posts:
+      name: sidebar_recent_posts
+      label: 侧边栏最近文章
+      type: radio
+      default: right
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_recent_posts:
+      name: sidebar_priority_recent_posts
+      label: 侧边栏优先级
+      type: text
+      default: 9400
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_recent_posts:
+      name: hide_recent_posts
+      label: 隐藏方式
+      type: select
+      default: 'is-not-hidden'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    recent_posts_num:
+      name: recent_posts_num
+      label: 展示文章数量
+      type: text
+      placeholder: 输入展示的文章数量
+      default: 5
+recent_comments:
+  label: 最近评论模块
+  items:
+    sidebar_recent_comments:
+      name: sidebar_recent_comments
+      label: 侧边栏最近评论
+      type: radio
+      default: right
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_recent_comments:
+      name: sidebar_priority_recent_comments
+      label: 侧边栏优先级
+      type: text
+      default: 9300
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_recent_comments:
+      name: hide_recent_comments
+      label: 隐藏方式
+      type: select
+      default: 'is-not-hidden'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    recent_comments_num:
+      name: recent_comments_num
+      label: 展示评论数量
+      type: text
+      placeholder: 输入展示的评论数量
+      default: 5
+categories:
+  label: 分类模块
+  items:
+    sidebar_categories:
+      name: sidebar_categories
+      label: 侧边栏分类
+      type: radio
+      default: left
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_categories:
+      name: sidebar_priority_categories
+      label: 侧边栏优先级
+      type: text
+      default: 9200
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_categories:
+      name: hide_categories
+      label: 隐藏方式
+      type: select
+      default: 'is-not-hidden'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    categories_more:
+      name: categories_more
+      label: 显示”更多“按钮
+      type: radio
+      data-type: bool
+      default: true
+      description: "超出展示的分类数量后是否显示”更多“按钮。"
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不显示
+    categories_num:
+      name: categories_num
+      label: 展示分类数量
+      type: text
+      placeholder: 输入展示的分类数量
+      default: 10
+tags:
+  label: 标签模块
+  items:
+    sidebar_tags:
+      name: sidebar_tags
+      label: 侧边栏标签
+      type: radio
+      default: left
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_tags:
+      name: sidebar_priority_tags
+      label: 侧边栏优先级
+      type: text
+      default: 9100
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_tags:
+      name: hide_tags
+      label: 隐藏方式
+      type: select
+      default: 'is-not-hidden'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    tags_more:
+      name: tags_more
+      label: 显示”更多“按钮
+      type: radio
+      data-type: bool
+      default: true
+      description: "超出展示的标签数量后是否显示”更多“按钮。"
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不显示
+    tags_num:
+      name: tags_num
+      label: 展示标签数量
+      type: text
+      placeholder: 输入展示的标签数量
+      default: 18
+    enable_tags_color:
+      name: enable_tag_color
+      label: 开启标签颜色
+      type: switch
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+tagcloud:
+  label: 标签云模块
+  items:
+    sidebar_tagcloud:
+      name: sidebar_tagcloud
+      label: 侧边栏标签云
+      type: radio
+      default: none
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_tagcloud:
+      name: sidebar_priority_tagcloud
+      label: 侧边栏优先级
+      type: text
+      default: 9000
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_tagcloud:
+      name: hide_tagcloud
+      label: 隐藏方式
+      type: select
+      default: 'is-hidden-not-desktop'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    tagcloud_more:
+      name: tagcloud_more
+      label: 显示”更多“按钮
+      type: radio
+      data-type: bool
+      default: true
+      description: "超出展示的标签数量后是否显示”更多“按钮。"
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不显示
+    tagcloud_num:
+      name: tagcloud_num
+      label: 展示标签数量
+      type: text
+      placeholder: 输入展示的标签数量
+      default: 32
+    enable_tagcloud_color:
+      name: enable_tagcloud_color
+      label: 开启标签颜色
+      type: switch
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+links:
+  label: 友链模块
+  items:
+    sidebar_links:
+      name: sidebar_links
+      label: 友链模块
+      type: radio
+      default: left
+      options:
+        - value: left
+          label: 左侧
+        - value: right
+          label: 右侧
+        - value: none
+          label: 关闭
+    sidebar_priority_links:
+      name: sidebar_priority_links
+      label: 侧边栏优先级
+      type: text
+      default: 8900
+      placeholder: '填写数字优先级'
+      description: '优先级越高，模块排序越靠前。'
+    hide_links:
+      name: hide_links
+      label: 隐藏方式
+      type: select
+      default: 'is-hidden-not-desktop'
+      options:
+        - value: 'is-hidden-mobile'
+          label: 移动设备隐藏
+        - value: 'is-hidden-not-desktop'
+          label: 移动、平板设备隐藏
+        - value: 'is-hidden-desktop'
+          label: 桌面设备隐藏
+        - value: 'is-not-hidden'
+          label: 不隐藏
+    links_more:
+      name: links_more
+      label: 显示”更多“按钮
+      type: radio
+      data-type: bool
+      default: true
+      description: "超出展示的友链数量后是否显示”更多“按钮。"
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 不显示
+    links_num:
+      name: links_num
+      label: 展示友链数量
+      type: text
+      placeholder: 输入展示的友链数量
+      default: 10
+link_page:
+  label: 友链页面
+  items:
+    links_thumbnail:
+      name: links_thumbnail
+      label: 友链界面缩略图
+      type: attachment
+      placeholder: '友链界面缩略图'
+    links_default_avatar:
+      name: links_default_avatar
+      label: 友链默认头像
+      type: attachment
+      placeholder: '未设置头像用户的默认头像'
+    show_exchange_info:
+      name: show_exchange_info
+      label: 显示友链交换信息
+      type: switch
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 显示
+        - value: false
+          label: 关闭
+    links_blogger_avatar:
+      name: links_blogger_avatar
+      label: 交换信息-博主头像链接
+      type: attachment
+      placeholder: '用于交换友链的博主头像链接'
+    links_info:
+      name: links_info
+      label: 友链界面补充信息
+      type: textarea
+      placeholder: '友链界面补充信息'
+    link_comment_id:
+      name: link_comment_id
+      label: 友链界面评论区ID
+      type: text
+      placeholder: '友链界面评论区ID'
+      description: '友链界面没有ID，需要指定一个自定义页面的ID用于评论，被指定的文章评论区将作为友链的评论区，放空则不显示评论区。'
+other_page:
+  label: 其他页面
+  items:
+    journals_fold_height:
+      name: journals_fold_height
+      label: 动态页面-动态内容折叠
+      type: text
+      default: 500
+      placeholder: '触发折叠的动态内容高度（px）'
+      description: '动态内容高度超出指定高度后默认进行折叠，指定的高度需大于等于260px。'
+    enable_tags_tag_color:
+      name: enable_tags_tag_color
+      label: 标签页面-开启标签颜色
+      type: switch
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+live2d:
+  label: 看板娘
+  items:
+    enable_live2d:
+      name: enable_live2d
+      label: 启用看板娘
+      type: switch
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    live2d_about_page:
+      name: live2d_about_page
+      label: “关于”按钮的url地址
+      type: text
+      placeholder: 'url地址'
+      description: '放空则不显示“关于”按钮。'
+    live2d_waifu_size:
+      name: live2d_waifu_size
+      label: 看板娘大小
+      type: text
+      default: '280x260'
+      placeholder: '宽度(px)x高度(px)'
+      description: '看板娘的（宽度x高度），单位为px。'
+    live2d_edge_side:
+      name: live2d_edge_side
+      label: 看板娘贴边方向与距离
+      type: text
+      default: 'right:50'
+      placeholder: '位置:距离(px)'
+enhance:
+  label: 增强功能
+  items:
+    cursor_style:
+      name: cursor_style
+      label: 鼠标风格
+      type: select
+      default: none
+      options:
+        - value: none
+          label: 关闭
+        - value: breeze
+          label: 清风（深色）
+    cursor_move:
+      name: cursor_move
+      label: 鼠标移动特效
+      type: select
+      default: none
+      options:
+        - value: none
+          label: 关闭
+        - value: bubbleCursor
+          label: 气泡跟随
+        - value: emojiCursor
+          label: 表情包跟随
+        - value: springyEmojiCursor
+          label: 弹性表情包跟随
+        - value: fairyDustCursor
+          label: 仙女棒效果
+        - value: snowflakeCursor
+          label: 雪花跟随
+        - value: followingDotCursor
+          label: 圆点跟随
+        - value: ghostCursor
+          label: 移动残影（疏）
+        - value: trailingCursor
+          label: 移动残影（密）
+    cursor_click:
+      name: cursor_click
+      label: 鼠标点击特效
+      type: select
+      default: none
+      options:
+        - value: none
+          label: 关闭
+        - value: firework
+          label: 烟花特效
+        - value: granule
+          label: 粒子爆炸
+    enable_sw:
+      name: enable_sw
+      label: "启用Service Worker优化"
+      type: radio
+      data-type: text
+      default: "false"
+      description: '需要在nginx中添加代理配置方可启用，配置方法见 <a href="https://blog.nineya.com/archives/104.html" target="_blank">Dream 2.0.5起移除FreeCDN，以及SW配置方法</a>'
+      options:
+        - value: "false"
+          label: 关闭
+        - value: "&install=true"
+          label: 开启CDN并发请求
+        - value: "&install=true&offLine=true"
+          label: 开启全站离线
+        - value: "uninstall"
+          label: 卸载
+    effects_sakura_mode:
+      name: effects_sakura_mode
+      label: 樱花飘落特效显示模式
+      type: radio
+      default: day
+      options:
+        - value: none
+          label: 关闭
+        - value: day
+          label: 白天
+        - value: night
+          label: 黑夜
+        - value: all
+          label: 全模式
+    effects_universe_mode:
+      name: effects_universe_mode
+      label: 宇宙星空特效显示模式
+      type: radio
+      default: night
+      options:
+        - value: none
+          label: 关闭
+        - value: day
+          label: 白天
+        - value: night
+          label: 黑夜
+        - value: all
+          label: 全模式
+    enable_gray_mode:
+      name: enable_gray_mode
+      label: 灰色模式
+      type: switch
+      data-type: bool
+      default: false
+      description: '向英雄致敬，愿精神长存！'
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    enable_baidu_push:
+      name: enable_baidu_push
+      label: 启用百度URL自动推送
+      type: switch
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    enable_toutiao_push:
+      name: enable_toutiao_push
+      label: 启用头条搜索自动推送
+      type: switch
+      data-type: bool
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+custom:
+  label: 定制主题
+  items:
+    external_css:
+      name: external_css
+      label: "外部CSS链接"
+      type: text
+      placeholder: CSS链接
+      description: "填入外部CSS链接，无需link标签，将插入head标签尾部。"
+    inline_css:
+      name: inline_css
+      label: "内嵌CSS"
+      type: textarea
+      placeholder: CSS样式内容
+      description: "填入CSS代码，无需style标签，将插入head标签尾部。"
+    external_js_head:
+      name: external_js_head
+      label: "外部JS链接（head）"
+      type: textarea
+      placeholder: script标签
+      description: "填入外部JS链接，需要script标签，可按情况指定async和defer属性，将插入head标签尾部。"
+    inline_js_head:
+      name: inline_js_head
+      label: "内嵌JS（head）"
+      type: textarea
+      placeholder: JS代码内容
+      description: "填入JS代码，无需script标签，将插入head标签尾部。"
+    external_js_body:
+      name: external_js_body
+      label: "外部JS链接（body）"
+      type: textarea
+      placeholder: script标签
+      description: "填入外部JS链接，需要script标签，可按情况指定async和defer属性，将插入body标签尾部。"
+    inline_js_body:
+      name: inline_js_body
+      label: "内嵌JS（body）"
+      type: textarea
+      placeholder: JS代码内容
+      description: "填入JS代码，无需script标签，将插入body标签尾部。"
+#    links_footer:
+#      name: links_footer
+#      label: 博客底部链接
+#      type: textarea
+#      default: '<a class="button is-transparent is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+#                    <i class="fa fa-creative-commons"></i>
 #                </a>'

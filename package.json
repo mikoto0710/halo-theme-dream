@@ -1,9 +1,9 @@
 {
   "name": "halo-theme-dream",
-  "version": "2.0.5-skiz",
+  "version": "2.0.6-skiz",
   "description": "Halo Dream主题个人修改版本，原作者nineya",
   "main": "index.js",
-  "author": "skiz",
+  "author": "skiz, nineya",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cdn": "gulp freecdn",
